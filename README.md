@@ -1,6 +1,6 @@
 # From Ambition to Action
 
-A 7-slide presentation on personal SMART goals, built with plain HTML, CSS and JavaScript. It needs no install, no build step and no internet connection.
+A 6-slide presentation on personal SMART goals, built with plain HTML, CSS and JavaScript. It needs no install, no build step and no internet connection.
 
 ## Run it
 
@@ -26,19 +26,15 @@ A shared link opens on slide 1. Adding `#4` to the end opens slide 4.
 |---|---|
 | → / ↓ / Space / Enter / Page Down | Next slide |
 | ← / ↑ / Page Up / Backspace | Previous slide |
-| 1–7 | Jump to that slide |
+| 1–6 | Jump to that slide |
 | Home / End | First / last slide |
 | **F** | Toggle full screen |
-| **N** | Toggle the speaker-notes overlay (for rehearsing) |
-| **P** | Open the presenter window: notes, timer, what comes next |
 
 The small controls in the bottom-right corner fade out when the mouse is idle. Swipe works on touch screens. The URL hash tracks the current slide, so `index.html#4` opens the weekly plan.
 
 ## Presenting with a projector
 
-- Extend your display (don't mirror it). Put `index.html` on the projector and press **F**.
-- Press **P** and drag the presenter window onto your laptop screen. Arrow keys work in either window.
-- If pop-ups are blocked, allow them for this file, or rehearse with **N** instead.
+Extend or mirror your display, put `index.html` on the projector, and press **F**.
 
 The slides are drawn on a fixed 1920×1080 (16:9) canvas that scales to fit any screen. On 4:3 projectors it letterboxes instead of reflowing, so nothing gets clipped.
 
@@ -49,15 +45,11 @@ The slides are drawn on a fixed 1920×1080 (16:9) canvas that scales to fit any 
 | `index.html` | The slides |
 | `styles.css` | Design system, layouts and animations |
 | `app.js` | Scaling, navigation, and the data-driven visuals (weekly calendar, hour totals, essay timeline, recovery chart) |
-| `notes.js` | Speaker notes, used by the N overlay and the presenter window |
-| `presenter.html` | Presenter view |
-| `speaker-notes.md` | Printable speaker notes, per-slide timing, and a rubric map |
 
 ## Editing
 
 - **Add your name:** change the line `<span>Student</span>` in `index.html` (slide 1) to your name.
 - **Change the weekly plan:** edit the `blocks` list in `app.js`. Each entry is `[day, start, end, type, label]`, where day 0 is Sunday and times are decimal hours (20.5 = 20:30). The totals on the right recalculate automatically.
-- **Change the notes:** edit `notes.js`, and update `speaker-notes.md` to match.
 
 ## Accessibility
 

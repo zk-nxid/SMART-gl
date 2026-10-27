@@ -16,8 +16,6 @@
   const weekStarts = ['Nov 1', 'Nov 8', 'Nov 15', 'Nov 22', 'Nov 29', 'Dec 6', 'Dec 13', 'Dec 20'];
   document.getElementById('weeksRow').innerHTML = weekStarts
     .map((d, i) => `<li style="--i:${i}"><b>Week ${i + 1}</b><span>${d}</span></li>`).join('');
-  document.getElementById('statusWeeks').innerHTML = weekStarts
-    .map((d, i) => `<li title="Week ${i + 1} · ${d}"></li>`).join('');
 
   /* ───────── Slide 4 · sample week ───────── */
   const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -135,8 +133,6 @@
   /* ───────── Navigation ───────── */
   const counter = document.getElementById('counter');
   const progressBar = document.getElementById('progressBar');
-  const notesPanel = document.getElementById('notesPanel');
-  let presenter = null;
 
   function go(n) {
     n = Math.max(0, Math.min(total - 1, n));
@@ -149,31 +145,13 @@
     counter.textContent = `${String(n + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
     progressBar.style.width = `${((n + 1) / total) * 100}%`;
     history.replaceState(null, '', `#${n + 1}`);
-    renderNotes();
-    if (presenter && !presenter.closed) presenter.postMessage({ type: 'slide', index: n, total }, '*');
   }
   const next = () => go(current + 1);
   const prev = () => go(current - 1);
 
-  function renderNotes() {
-    const n = (window.SPEAKER_NOTES || [])[current];
-    if (!n) return;
-    document.getElementById('notesTitle').textContent = `${current + 1} · ${n.title}`;
-    document.getElementById('notesTime').textContent = `≈ ${n.time}`;
-    document.getElementById('notesText').innerHTML = n.text.map(p => `<p>${p}</p>`).join('');
-  }
-
   function toggleFullscreen() {
     if (!document.fullscreenElement) document.documentElement.requestFullscreen?.().catch(() => {});
     else document.exitFullscreen?.();
-  }
-  function toggleNotes() {
-    const open = notesPanel.classList.toggle('open');
-    notesPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
-  }
-  function openPresenter() {
-    presenter = window.open('presenter.html', 'presenter', 'width=1100,height=720');
-    // presenter.html asks for the current slide once it loads ('ready' message below)
   }
 
   document.addEventListener('keydown', e => {
@@ -186,24 +164,14 @@
       case 'Home': go(0); break;
       case 'End': go(total - 1); break;
       case 'f': case 'F': toggleFullscreen(); break;
-      case 'n': case 'N': toggleNotes(); break;
-      case 'p': case 'P': openPresenter(); break;
       default:
         if (/^[1-9]$/.test(e.key) && +e.key <= total) go(+e.key - 1);
     }
   });
 
-  window.addEventListener('message', e => {
-    const m = e.data || {};
-    if (m.type === 'ready' && e.source) { presenter = e.source; go(current); }
-    if (m.type === 'next') next();
-    if (m.type === 'prev') prev();
-  });
-
   document.getElementById('nextBtn').onclick = next;
   document.getElementById('prevBtn').onclick = prev;
   document.getElementById('fsBtn').onclick = toggleFullscreen;
-  document.getElementById('notesBtn').onclick = toggleNotes;
   document.querySelectorAll('.controls button').forEach(b => b.addEventListener('keydown', e => {
     if (e.key === ' ' || e.key === 'Enter') e.stopPropagation(); // let focused buttons act normally
   }));
