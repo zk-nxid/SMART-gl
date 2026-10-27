@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>From Ambition to Action</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="viewport" id="viewport">
+    <div class="stage" id="stage" aria-live="polite">
+
+      <!-- ───────────── 1 · TITLE ───────────── -->
+      <section class="slide s-title" data-title="Title">
+        <p class="eyebrow r" style="--d:0">Personal goal-setting · Fall 2026</p>
+        <h1 class="r" style="--d:1">From Ambition<br>to Action</h1>
+        <p class="lede r" style="--d:2">Three goals. Eight weeks. One plan.</p>
+
+        <div class="title-meta r" style="--d:3">
+          <span>Student</span><span class="sep"></span><span>Junior Software Engineer, Nx iD</span>
+        </div>
+
+        <div class="weeks" aria-label="The eight weeks, November 1 to December 26, 2026">
+          <div class="weeks-head r" style="--d:4">
+            <span>Nov 1</span><span class="weeks-line"></span><span>Dec 26, 2026</span>
+          </div>
+          <ol class="weeks-row" id="weeksRow"></ol>
+          <p class="weeks-foot r" style="--d:6">Eight weeks, Sunday to Saturday. None filled in yet.</p>
+        </div>
+      </section>
+
+      <!-- ───────────── 2 · WHY ───────────── -->
+      <section class="slide s-why" data-title="Why these goals">
+        <div class="why-copy">
+          <p class="eyebrow r" style="--d:0">Why these three</p>
+          <h2 class="r" style="--d:1">One problem,<br>three angles.</h2>
+          <p class="body r" style="--d:2">School, roughly 25–30 hours a week at Nx iD, and my own projects. When one part of the week slips, another part pays for it.</p>
+          <ul class="why-load r" style="--d:3">
+            <li><b>School</b><span>Sun – Thu</span></li>
+            <li><b>Nx iD</b><span>~25–30 h / week</span></li>
+            <li><b>Own projects</b><span>whatever is left</span></li>
+          </ul>
+        </div>
+
+        <svg class="why-diagram" viewBox="0 0 1000 800" role="img" aria-label="Diagram: managing my time reserves practice hours and puts assignments on the calendar; starting assignments early prevents last-minute crunches that would eat practice time.">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+              <path d="M0 1 L9 5 L0 9" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <path class="edge" style="--d:4" d="M478 222 L222 566" marker-end="url(#arrow)"/>
+          <path class="edge" style="--d:5" d="M522 222 L778 566" marker-end="url(#arrow)"/>
+          <path class="edge" style="--d:6" d="M236 600 L760 600" marker-end="url(#arrow)"/>
+
+          <g class="elabel r" style="--d:5">
+            <text x="318" y="372" text-anchor="end">puts every assignment</text>
+            <text x="318" y="404" text-anchor="end">on the calendar, day one</text>
+          </g>
+          <g class="elabel r" style="--d:6">
+            <text x="682" y="372">reserves 3 hours</text>
+            <text x="682" y="404">of practice every week</text>
+          </g>
+          <g class="elabel r" style="--d:7">
+            <text x="498" y="576" text-anchor="middle">no last-minute crunch eating practice time</text>
+          </g>
+          <g class="ecenter r" style="--d:8">
+            <text x="500" y="440" text-anchor="middle">each goal makes</text>
+            <text x="500" y="472" text-anchor="middle">the other two easier</text>
+          </g>
+
+          <g class="node r" style="--d:2">
+            <text class="ntag" x="500" y="96" text-anchor="middle">HABIT · THE BASE</text>
+            <text class="nlabel" x="500" y="148" text-anchor="middle">Manage my time</text>
+            <circle cx="500" cy="196" r="16" fill="var(--habit)"/>
+          </g>
+          <g class="node r" style="--d:3">
+            <circle cx="200" cy="600" r="16" fill="var(--avoid)"/>
+            <text class="ntag" x="200" y="676" text-anchor="middle">AVOID</text>
+            <text class="nlabel" x="200" y="720" text-anchor="middle">Start assignments early</text>
+          </g>
+          <g class="node r" style="--d:3">
+            <circle cx="800" cy="600" r="16" fill="var(--skill)"/>
+            <text class="ntag" x="800" y="676" text-anchor="middle">SKILL</text>
+            <text class="nlabel" x="800" y="720" text-anchor="middle">Build programming skill</text>
+          </g>
+        </svg>
+      </section>
+
+      <!-- ───────────── 3 · GOALS ───────────── -->
+      <section class="slide s-goals" data-title="Three SMART goals">
+        <header class="slide-head">
+          <p class="eyebrow r" style="--d:0">The three goals · Nov 1 – Dec 26, 2026</p>
+          <h2 class="r" style="--d:1">What I'm aiming for</h2>
+        </header>
+
+        <div class="goals">
+          <article class="goal" style="--c:var(--habit)">
+            <div class="goal-top r" style="--d:2"><span class="num">01</span><span class="tag">Habit</span></div>
+            <h3 class="r" style="--d:3">Plan the week,<br>then follow it.</h3>
+            <dl class="r" style="--d:4">
+              <dt>Action</dt><dd>Every Saturday, plan the next week in my calendar: school, Nx iD, programming, free time.</dd>
+              <dt>Target</dt><dd><strong>Follow the schedule ≥ 5 days</strong> a week, checked in my Saturday review.</dd>
+              <dt>When</dt><dd>8 weeks · Nov 1 – Dec 26</dd>
+            </dl>
+            <p class="why r" style="--d:5">Realistic: planning takes ~45 min a week. 5 of 7 days leaves room for bad days.</p>
+          </article>
+
+          <article class="goal" style="--c:var(--skill)">
+            <div class="goal-top r" style="--d:3"><span class="num">02</span><span class="tag">Skill</span></div>
+            <h3 class="r" style="--d:4">Get better at<br>engineering.</h3>
+            <dl class="r" style="--d:5">
+              <dt>Action</dt><dd>Focused practice outside my Nx iD work, applied to one small independent project or feature.</dd>
+              <dt>Target</dt><dd><strong>24 hours</strong> (~3 h / week) and <strong>1 project</strong> built, tested and documented.</dd>
+              <dt>When</dt><dd>By December 26, 2026</dd>
+            </dl>
+            <p class="why r" style="--d:6">Realistic: 3 hours fit on the weekend, next to work and school.</p>
+          </article>
+
+          <article class="goal" style="--c:var(--avoid)">
+            <div class="goal-top r" style="--d:4"><span class="num">03</span><span class="tag">Something I avoid</span></div>
+            <h3 class="r" style="--d:5">Start assignments<br>right away.</h3>
+            <dl class="r" style="--d:6">
+              <dt>Action</dt><dd>Log when each assignment is given, started and submitted.</dd>
+              <dt>Target</dt><dd><strong>≥ 80% started within 24 h.</strong><br><strong>≥ 90% submitted a day early.</strong></dd>
+              <dt>When</dt><dd>8 weeks · Nov 1 – Dec 26</dd>
+            </dl>
+            <p class="why r" style="--d:7">Realistic: “starting” means 20 minutes, reading the brief and outlining.</p>
+          </article>
+        </div>
+
+        <div class="smart r" style="--d:8" aria-label="All three goals are Specific, Measurable, Achievable, Relevant and Time-bound">
+          <span>Each goal is</span>
+          <b>S</b>pecific <i></i> <b>M</b>easurable <i></i> <b>A</b>chievable <i></i> <b>R</b>elevant <i></i> <b>T</b>ime-bound
+        </div>
+      </section>
+
+      <!-- ───────────── 4 · WEEK ───────────── -->
+      <section class="slide s-week" data-title="Weekly plan">
+        <header class="week-head">
+          <div>
+            <p class="eyebrow r" style="--d:0">Weekly plan · a sample week</p>
+            <h2 class="r" style="--d:1">Where the hours actually go</h2>
+          </div>
+          <p class="week-note r" style="--d:2">Times are realistic estimates. My real school and work hours vary week to week.</p>
+        </header>
+
+        <div class="week-body">
+          <div class="cal" id="cal" role="img" aria-label="Sample weekly calendar"></div>
+
+          <aside class="totals">
+            <p class="totals-title r" style="--d:3">Hours in this week</p>
+            <ul id="totals"></ul>
+            <div class="totals-rules r" style="--d:12">
+              <p><span class="key flexkey"></span>Saturday flex covers weeks closer to 30 h of work.</p>
+              <p><span class="key movekey"></span>Practice blocks can move. The 24-hour total can't.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ───────────── 5 · METHOD ───────────── -->
+      <section class="slide s-method" data-title="My method">
+        <header class="slide-head">
+          <p class="eyebrow r" style="--d:0">My method</p>
+          <h2 class="r" style="--d:1">A weekly loop, not a list of tips</h2>
+        </header>
+
+        <ol class="loop">
+          <li class="r" style="--d:2">
+            <span class="step">01</span>
+            <h4>Time-block</h4>
+            <p>Every goal gets a slot on the calendar, not leftover time.</p>
+          </li>
+          <li class="r" style="--d:3">
+            <span class="step">02</span>
+            <h4>Break it down</h4>
+            <p>Big assignments become small tasks. The first one takes 20 minutes.</p>
+          </li>
+          <li class="r" style="--d:4">
+            <span class="step">03</span>
+            <h4>Track it</h4>
+            <p>Calendar check-offs, a practice-hours log, an assignment log.</p>
+          </li>
+          <li class="r" style="--d:5">
+            <span class="step">04</span>
+            <h4>Review &amp; adjust</h4>
+            <p>Saturday: compare plan vs. reality, fix next week.</p>
+          </li>
+        </ol>
+        <svg class="loop-return" viewBox="0 0 1680 70" aria-hidden="true">
+          <defs>
+            <marker id="arrowLoop" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+              <path d="M0 1 L9 5 L0 9" fill="none" stroke="var(--ink-3)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <path class="edge" style="--d:6" d="M1491 4 V 40 Q1491 60 1471 60 H 209 Q189 60 189 40 V 10" marker-end="url(#arrowLoop)"/>
+        </svg>
+        <p class="loop-why r" style="--d:7">Why it fits me: it's how we already work at Nx iD. Plan a sprint, split work into tickets, track it, run a retro.</p>
+
+        <div class="essay r" style="--d:8">
+          <p class="essay-title">Example · an essay given on Sunday, due in 14 days</p>
+          <div class="essay-track" id="essay"></div>
+        </div>
+      </section>
+
+      <!-- ───────────── 6 · OBSTACLE ───────────── -->
+      <section class="slide s-obstacle" data-title="Obstacle & solution">
+        <div class="ob-left">
+          <p class="eyebrow r" style="--d:0">Likely obstacle</p>
+          <h2 class="r" style="--d:1">When the week<br>breaks.</h2>
+
+          <div class="flow">
+            <div class="flow-row r" style="--d:2">
+              <span class="flow-k">Obstacle</span>
+              <p>An urgent task at work, a moved deadline, or an assignment I didn't see coming.</p>
+            </div>
+            <div class="flow-row r" style="--d:3">
+              <span class="flow-k">Response</span>
+              <ol>
+                <li>School deadlines come first.</li>
+                <li>Move practice blocks. Don't delete them.</li>
+                <li>Rebalance in the Saturday review.</li>
+              </ol>
+            </div>
+            <div class="flow-row r" style="--d:4">
+              <span class="flow-k">Outcome</span>
+              <p>Deadlines met. The 8-week totals stay on track.</p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="ob-chart">
+          <figcaption class="r" style="--d:2">
+            <b>Practice hours per week</b>
+            <span>Illustration of a disrupted week, not real data</span>
+          </figcaption>
+          <div class="bars" id="bars"></div>
+          <div class="bars-total r" style="--d:14">Running total (Σ) still reaches <b>24 h</b> by Dec 26</div>
+          <div class="bars-legend r" style="--d:15">
+            <span><i class="k" style="background:var(--skill)"></i>Planned hours</span>
+            <span><i class="k" style="background:repeating-linear-gradient(135deg,var(--skill) 0 3px,#CFE6DB 3px 6px)"></i>Make-up hour</span>
+            <span><i class="k" style="border:2px dashed #9DBFAF"></i>Moved, not lost</span>
+            <span><i class="k dash"></i>3 h / week pace</span>
+          </div>
+        </figure>
+      </section>
+
+      <!-- ───────────── 7 · SUCCESS ───────────── -->
+      <section class="slide s-success" data-title="Measuring success">
+        <header class="slide-head">
+          <p class="eyebrow r" style="--d:0">Measuring success</p>
+          <h2 class="r" style="--d:1">What December 26 should look like</h2>
+        </header>
+
+        <div class="success-body">
+          <ul class="targets">
+            <li class="r" style="--d:2"><span class="dot" style="background:var(--habit)"></span><b>≥ 5 / 7</b><span>days a week on schedule</span></li>
+            <li class="r" style="--d:3"><span class="dot" style="background:var(--skill)"></span><b>24 h</b><span>of focused practice logged</span></li>
+            <li class="r" style="--d:4"><span class="dot" style="background:var(--skill)"></span><b>1</b><span>project built, tested, documented</span></li>
+            <li class="r" style="--d:5"><span class="dot" style="background:var(--avoid)"></span><b>≥ 80%</b><span>of assignments started within 24 h</span></li>
+            <li class="r" style="--d:6"><span class="dot" style="background:var(--avoid)"></span><b>≥ 90%</b><span>submitted at least a day early</span></li>
+          </ul>
+
+          <div class="success-side">
+            <div class="status r" style="--d:7">
+              <span>Progress so far</span>
+              <ol class="status-weeks" id="statusWeeks"></ol>
+              <span>0 of 8 weeks. Checked every Saturday.</span>
+            </div>
+            <p class="closing r" style="--d:8">These are targets, not results yet. What I'm really building is reliability: less stress at school now, and the kind of consistency that gets you trusted with bigger work as an engineer.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- chrome: progress + counter + controls -->
+  <div class="chrome" id="chrome">
+    <div class="progress"><span id="progressBar"></span></div>
+    <div class="controls">
+      <button id="prevBtn" aria-label="Previous slide">‹</button>
+      <span class="counter" id="counter">01 / 07</span>
+      <button id="nextBtn" aria-label="Next slide">›</button>
+      <button id="notesBtn" aria-label="Toggle speaker notes (N)" title="Speaker notes (N)">Notes</button>
+      <button id="fsBtn" aria-label="Toggle fullscreen (F)" title="Fullscreen (F)">Full screen</button>
+    </div>
+  </div>
+
+  <aside class="notes-panel" id="notesPanel" aria-hidden="true">
+    <div class="notes-meta"><span id="notesTitle"></span><span id="notesTime"></span></div>
+    <div class="notes-text" id="notesText"></div>
+  </aside>
+
+  <script src="notes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
