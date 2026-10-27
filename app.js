@@ -24,24 +24,23 @@
   const blocks = [];
   for (let d = 0; d <= 4; d++) {
     blocks.push(
-      [d, 8, 14, 'school', 'School', 'approx. hours'],
-      [d, 14, 15, 'rest', 'Break'],
-      [d, 15, 19, 'work', 'Nx iD', '4 h'],
-      [d, 19, 20, 'rest', 'Dinner'],
-      [d, 20, 21.5, 'homework', 'Homework', '1.5 h'],
-      [d, 21.5, 23, 'rest', 'Free time'],
+      [d, 7, 16, 'school', 'School', '9 h'],
+      [d, 16, 16.5, 'rest', 'Break'],
+      [d, 16.5, 20.5, 'work', 'Nx iD', '4 h'],
+      [d, 20.5, 21, 'rest', 'Dinner'],
+      [d, 21, 22.5, 'homework', 'Homework', '1.5 h'],
+      [d, 22.5, 23, 'rest', 'Free time'],
     );
   }
   blocks.push(
-    [5, 9, 14, 'work', 'Nx iD', '5 h'],
-    [5, 14, 16, 'rest', 'Lunch, break'],
+    [5, 9, 15, 'work', 'Nx iD', '6 h'],
+    [5, 15, 16, 'rest', 'Lunch, break'],
     [5, 16, 17.5, 'practice', 'Practice', '1.5 h'],
     [5, 17.5, 23, 'rest', 'Free evening'],
-    [6, 10, 11.5, 'practice', 'Practice', '1.5 h'],
-    [6, 11.5, 13, 'rest', 'Free time'],
-    [6, 13, 16, 'flex', 'Nx iD flex', 'only if needed'],
-    [6, 16, 16.75, 'planning', 'Review + plan'],
-    [6, 16.75, 23, 'rest', 'Free time'],
+    [6, 9.5, 11, 'practice', 'Practice', '1.5 h'],
+    [6, 11, 16, 'work', 'Nx iD', '5 h'],
+    [6, 16.25, 17, 'planning', 'Review + plan'],
+    [6, 17, 23, 'rest', 'Free time'],
   );
 
   const cal = document.getElementById('cal');
@@ -59,8 +58,9 @@
   blocks.forEach(([d, a, b, type, label, sub], i) => {
     const top = (a - START) * HOUR_H + 2, h = (b - a) * HOUR_H - 4;
     const tiny = h < 50 ? ' tiny' : '';
+    if (h < 22) label = '';            // half-hour gaps are too short to label
     const showSub = sub && h >= 60;
-    html += `<div class="blk ${type}${tiny}" style="--i:${d * 2 + (i % 6)};left:${d * COL_W + 3}px;top:${top}px;width:${COL_W - 6}px;height:${h}px" title="${DAYS[d]} ${fmt(a)}–${fmt(b)} · ${label}">${label}${showSub ? `<small>${sub}</small>` : ''}</div>`;
+    html += `<div class="blk ${type}${tiny}" style="--i:${d * 2 + (i % 6)};left:${d * COL_W + 3}px;top:${top}px;width:${COL_W - 6}px;height:${h}px" title="${DAYS[d]} ${fmt(a)}–${fmt(b)}${label ? ` · ${label}` : ''}">${label}${showSub ? `<small>${sub}</small>` : ''}</div>`;
   });
   html += '</div>';
   cal.innerHTML = html;
@@ -68,14 +68,14 @@
   // Totals are computed from the same block data, so the chart and the numbers can't drift apart.
   const sum = t => blocks.filter(b => b[3] === t).reduce((s, b) => s + (b[2] - b[1]), 0);
   const rows = [
-    ['School', sum('school'), 'var(--school)', '≈ 30 h'],
-    ['Nx iD work', sum('work'), 'var(--work)', `${sum('work')} h + up to ${sum('flex')} flex`],
+    ['School', sum('school'), 'var(--school)', `${sum('school')} h`],
+    ['Nx iD work', sum('work'), 'var(--work)', `${sum('work')} h`],
     ['Homework', sum('homework'), 'var(--avoid)', `${sum('homework')} h`],
     ['Programming practice', sum('practice'), 'var(--skill)', `${sum('practice')} h`],
     ['Review + planning', sum('planning'), 'var(--habit)', '45 min'],
     ['Free time + breaks', sum('rest'), '#D8D4CA', `≈ ${Math.round(sum('rest'))} h`],
   ];
-  const max = 35;
+  const max = Math.max(...rows.map(r => r[1]));
   document.getElementById('totals').innerHTML = rows.map(([name, h, color, val], i) => `
     <li style="--i:${i}">
       <span class="lbl"><span class="key" style="background:${color}"></span>${name}</span>
